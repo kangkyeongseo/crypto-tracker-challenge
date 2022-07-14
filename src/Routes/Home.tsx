@@ -1,7 +1,8 @@
 import { useQuery } from "react-query";
-import { getCoins, ICoin } from "../api";
+import { getCoins, ICoins } from "../api";
 import styled from "styled-components";
 import CoinList from "./Components/CoinList";
+import { Link } from "react-router-dom";
 
 const Title = styled.h1`
   display: block;
@@ -21,27 +22,27 @@ const Wrapper = styled.div`
 const Loading = styled.div``;
 
 function Home() {
-  const { data, isLoading } = useQuery<ICoin[]>("coins", getCoins);
+  const { data, isLoading } = useQuery<ICoins[]>("coins", getCoins);
   console.log(data);
   return (
     <>
-      <Title>Coin Tracker</Title>
-      <Wrapper>
-        {isLoading ? (
-          <Loading>Loading...</Loading>
-        ) : (
-          <>
+      {isLoading ? (
+        <Loading>Loading...</Loading>
+      ) : (
+        <>
+          <Title>Coin Tracker</Title>
+          <Wrapper>
             {data?.slice(0, 100).map((coin) => (
-              <CoinList
-                key={coin.id}
-                name={coin.name}
-                image={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
-              />
+              <Link to={`${coin.id}`} key={coin.id} state={{ name: coin.name }}>
+                <CoinList
+                  name={coin.name}
+                  image={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                />
+              </Link>
             ))}
-            |
-          </>
-        )}
-      </Wrapper>
+          </Wrapper>
+        </>
+      )}
     </>
   );
 }
