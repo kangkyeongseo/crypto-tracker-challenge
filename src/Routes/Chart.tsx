@@ -1,10 +1,15 @@
 import { useQuery } from "react-query";
 import { useOutletContext } from "react-router-dom";
 import ApexChart from "react-apexcharts";
+import styled from "styled-components";
 import { getCoinHistory, ICoinHistory } from "../api";
 import { IOutletContext } from "./Price";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "./atom";
+
+const Wrapper = styled.div`
+  color: ${(props) => props.theme.textColor};
+`;
 
 function Chart() {
   const { coinId } = useOutletContext<IOutletContext>();
@@ -14,7 +19,7 @@ function Chart() {
   );
   const isDark = useRecoilValue(isDarkAtom);
   return (
-    <>
+    <Wrapper>
       {isLoading ? null : (
         <ApexChart
           type="candlestick"
@@ -31,6 +36,9 @@ function Chart() {
           options={{
             theme: {
               mode: isDark ? "dark" : "light",
+              monochrome: {
+                color: "black",
+              },
             },
             chart: {
               height: 500,
@@ -38,7 +46,6 @@ function Chart() {
               toolbar: {
                 show: false,
               },
-              background: isDark ? "2c3e50" : "ecf0f1",
             },
             xaxis: {
               type: "datetime",
@@ -51,7 +58,7 @@ function Chart() {
           }}
         />
       )}
-    </>
+    </Wrapper>
   );
 }
 

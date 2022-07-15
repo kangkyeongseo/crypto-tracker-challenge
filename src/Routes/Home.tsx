@@ -30,6 +30,11 @@ const ModeBtn = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   padding: 10px;
   border-radius: 50%;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.05);
+  }
   svg {
     width: 25px;
     fill: ${(props) => props.theme.textColor};
@@ -42,9 +47,14 @@ const Wrapper = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   padding: 20px 15px;
   border-radius: 45px;
+  margin-bottom: 30px;
 `;
 
-const Loading = styled.div``;
+const Loading = styled.div`
+  text-align: center;
+  margin-top: 400px;
+  color: ${(props) => props.theme.bgColor};
+`;
 
 function Home() {
   const { data, isLoading } = useQuery<ICoins[]>("coins", getCoins);

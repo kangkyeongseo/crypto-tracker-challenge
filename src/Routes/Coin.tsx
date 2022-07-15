@@ -27,12 +27,19 @@ const HeaderContent = styled.div`
 
 const Title = styled.h1`
   font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
 `;
 
 const HomeBtn = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   padding: 10px;
   border-radius: 50%;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.05);
+  }
   svg {
     width: 25px;
     fill: ${(props) => props.theme.textColor};
@@ -41,7 +48,10 @@ const HomeBtn = styled.div`
 
 const ModeBtn = styled(HomeBtn)``;
 
-const Loading = styled.div``;
+const Loading = styled.div`
+  text-align: center;
+  color: ${(props) => props.theme.textColor};
+`;
 
 const Wrapper = styled.div`
   max-width: 600px;
@@ -49,6 +59,7 @@ const Wrapper = styled.div`
   background-color: ${(props) => props.theme.bgColor};
   padding: 20px 15px;
   border-radius: 45px;
+  margin-bottom: 30px;
 `;
 
 const Head = styled.div`
@@ -95,6 +106,10 @@ const Tap = styled.div<{ isActive: boolean }>`
   padding: 10px 30px;
   border-radius: 30px;
   text-align: center;
+  transition: all 0.2s linear;
+  :hover {
+    color: ${(props) => props.theme.accentColor};
+  }
 `;
 
 interface IState {

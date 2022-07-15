@@ -8,7 +8,11 @@ const Wrapper = styled.div`
   padding: 10px 10px;
   border-radius: 35px;
   margin-bottom: 15px;
+  transition: all 0.2s linear;
   :hover {
+    transform: scale(1.02);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     color: ${(props) => props.theme.accentColor};
   }
 `;
