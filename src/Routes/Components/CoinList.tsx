@@ -4,10 +4,13 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: ${(props) => props.theme.textColor};
   padding: 10px 10px;
   border-radius: 35px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  :hover {
+    color: ${(props) => props.theme.accentColor};
+  }
 `;
 
 const Col = styled.div`

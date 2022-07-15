@@ -15,7 +15,7 @@ const Box = styled.div<{ fontColor: string }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: ${(props) => props.theme.textColor};
   padding: 20px 0px;
   border-radius: 10px;
   span:first-child {
@@ -52,7 +52,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_15m < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
@@ -65,7 +65,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_30m < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
@@ -78,7 +78,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_1h < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
@@ -91,7 +91,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_12h < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
@@ -104,7 +104,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_24h < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
@@ -117,7 +117,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_7d < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
@@ -130,7 +130,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_30d < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
@@ -143,7 +143,7 @@ function Price() {
                 ? ""
                 : data?.quotes.USD.percent_change_1y < 0
                 ? "red"
-                : "blue"
+                : "#3498db"
             }
           >
             <span>Percent Change</span>
