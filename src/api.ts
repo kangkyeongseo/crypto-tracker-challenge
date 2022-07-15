@@ -62,6 +62,17 @@ export interface ICointickers {
   };
 }
 
+export interface ICoinHistory {
+  time_open: string;
+  time_close: string;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  market_cap: number;
+}
+
 const baseUrl = "https://api.coinpaprika.com/v1";
 
 export async function getCoins() {
@@ -74,4 +85,10 @@ export async function getCoinInfo(coinId: string) {
 
 export async function getCoinTicker(coinId: string) {
   return await (await fetch(`${baseUrl}/tickers/${coinId}`)).json();
+}
+
+export async function getCoinHistory(coinId: string) {
+  return await (
+    await fetch(`https://ohlcv-api.nomadcoders.workers.dev?coinId=${coinId}`)
+  ).json();
 }

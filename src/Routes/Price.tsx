@@ -31,7 +31,7 @@ const Box = styled.div<{ fontColor: string }>`
   }
 `;
 
-interface IOutletContext {
+export interface IOutletContext {
   coinId: string;
 }
 
