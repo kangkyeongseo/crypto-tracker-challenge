@@ -18,7 +18,7 @@ const HeaderContent = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 42px;
+  font-size: 24px;
 `;
 
 const HomeBtn = styled.div`
@@ -73,7 +73,7 @@ const Supply = styled(Head)`
 const Taps = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin: 20px 0px;
 `;
 
 const Tap = styled.div`
@@ -165,7 +165,7 @@ function Coin() {
                 <Link to="chart">Chart</Link>
               </Tap>
             </Taps>
-            <Outlet />
+            <Outlet context={{ coinId }} />
           </>
         )}
       </Wrapper>
