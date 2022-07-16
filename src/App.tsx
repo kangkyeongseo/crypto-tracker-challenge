@@ -2,7 +2,7 @@ import Router from "./Router";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import { useRecoilValue } from "recoil";
-import { isDarkAtom } from "./Routes/atom";
+import { isDarkAtom } from "./routes/atom";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
